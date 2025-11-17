@@ -1,0 +1,14 @@
+@use '../../scss/abstracts' as a;
+
+.header{
+      color: a.$fontDark;
+    }
+    h1{
+        font-size: 3em;
+    span{
+        color: a.$fontRed;
+    }
+    p{
+        font-size: 1.125em;
+    }
+}

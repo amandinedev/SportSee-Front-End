@@ -1,0 +1,29 @@
+.mainDashboardContainer{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;//100%;
+    gap: 4%;
+    padding-top: 4%;
+    padding-left: 7%;
+    .header{
+        height: 16vh;
+    }
+    .leftContent{
+        display: flex;
+        flex-direction: column;
+        gap: 4%;
+        height: auto;;
+        width: 69%;
+        .displayHorizontal{
+            display: flex;
+            gap: 2%;
+   
+            justify-content: space-between;
+        }
+    }
+    .rightContent{
+        height: auto;
+        width: 30%;
+    }
+}

@@ -1,0 +1,59 @@
+@use '../../scss/abstracts' as a;
+
+.dailyActivityContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 35vh;
+  background-color: a.$bgGrey;
+  border-radius: 5px;
+  padding: 2%;
+  margin-top: 5vh;
+  .dailyActivityTitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 20%;
+    h2 {
+      font-size: 0.94em;
+    }
+    .dailyActivityLegend {
+      display: flex;
+      margin-left: 16px;
+      gap: 20px;
+      height: 20%;
+      .dailyActivityLegendItem {
+        display: flex;
+        align-items: center;
+        color: a.$fontGrey;
+        font-size: 0.875em;
+        .dailyActivityLegendItemDot {
+          width: 10px;
+          height: 10px;
+          border-radius: 50%;
+          display: inline-block;
+          margin-right: 8px;
+        }
+        .black {
+          background-color: a.$dark;
+        }
+        .red {
+          background-color: a.$red;
+        }
+      }
+    }
+  }
+  .tooltip {
+    background: a.$red;
+    font-size: 0.44em;
+    color: a.$fontBright;
+    padding: 30%;
+    border-radius: 2px;
+    width: 5vw;
+    aspect-ratio: 2/3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2vh;
+  }
+}
