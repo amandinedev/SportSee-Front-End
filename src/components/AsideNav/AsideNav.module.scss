@@ -1,0 +1,41 @@
+@use '../../scss/abstracts' as a;
+
+.navVertical {
+  height: auto;//91vh;
+  min-height: 91vh;
+  width: 8vw; 
+  background-color: a.$bgDark;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  .sportIcons {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    width: 60%;
+    margin-bottom: 10vh;
+  }
+
+    .iconContainer {
+      margin-bottom: 10%;
+      img:hover {
+      opacity: 0.8;
+    }
+    }
+  }
+    .copyright{
+       display: flex;
+       height: 30%;
+      width: 100%;
+    p{
+      display: flex;
+      font-size: 0.75em;
+color: a.$fontBright;
+    width: auto;
+    margin: auto;
+writing-mode: sideways-lr;
+
+    }
+      }

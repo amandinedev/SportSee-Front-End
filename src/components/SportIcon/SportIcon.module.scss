@@ -1,0 +1,13 @@
+.iconContainer {
+  display: flex;
+  width: 100%; 
+  aspect-ratio: 1;
+
+  background-color: #f8f9fa; 
+  border-radius: 10px; 
+
+  img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}

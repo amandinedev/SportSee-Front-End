@@ -1,0 +1,8 @@
+.layout{
+    width: 100%;
+    height: auto;//100%;
+    &Content{
+    display: flex;
+    height: 100vh;
+    }
+}
