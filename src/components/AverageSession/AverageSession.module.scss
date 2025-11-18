@@ -1,7 +1,23 @@
+@use '../../scss/abstracts' as a;
+
 .averageSessionContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     aspect-ratio: 1;
     height: 100%;
-    background-color: hsla(0, 100%, 50%, 1);
+    background-color: a.$bgRed;
     border-radius: 5px;
     min-width: 30%;
+    position: relative;
+    overflow: hidden;
+    h3{
+        position: absolute;
+        font-size:  0.9375em;
+        line-height: 1.5em ;
+        padding: 10%;
+        color: a.$fontBright;
+        opacity: 50.4%;
+        z-index: 0;
+    }
 }
