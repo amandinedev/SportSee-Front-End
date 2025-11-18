@@ -1,0 +1,61 @@
+@use '../../scss/abstracts' as a;
+
+
+.keydataContainer {
+  display: flex;
+  align-items: center;
+  background-color: a.$bgGrey;
+  border-radius: 2px;
+  padding: 10% 10%;
+  gap: 10%;
+
+  .textContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2% 0;
+
+    p {
+      font-size: 0.875em;
+      color: a.$fontGrey;
+    }
+
+    h2 {
+      font-size: 1.25em;
+      color: a.$fontDark;
+    }
+  }
+
+  img {
+    width: 40%;
+  }
+
+  .calories,
+  .proteins,
+  .carbohydrates,
+  .lipids {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 4%;
+    width: 25%;
+    aspect-ratio: 1/1;
+  }
+
+  .calories {
+    background-color: a.$calories;
+  }
+
+  .proteins {
+    background-color: a.$proteins;
+  }
+
+  .carbohydrates {
+    background-color: a.$carbohydrates;
+  }
+
+  .lipids {
+    background-color: a.$lipids;
+  }
+}

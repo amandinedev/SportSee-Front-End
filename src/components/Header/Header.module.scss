@@ -1,7 +1,12 @@
 @use '../../scss/abstracts' as a;
 
 .header{
-      color: a.$fontDark;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: auto;
+    gap: 2em;
+    color: a.$fontDark;
     }
     h1{
         font-size: 3em;

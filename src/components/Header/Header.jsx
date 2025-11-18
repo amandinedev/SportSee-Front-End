@@ -5,7 +5,6 @@ import styles from './Header.module.scss';
 
 function Header() {
   const { id } = useParams();
-  console.log(id);
 
   const { user, loading, error } = useFetchUser(id);
 

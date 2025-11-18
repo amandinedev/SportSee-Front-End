@@ -1,7 +1,8 @@
 import React from 'react';
 import Styles from './SportIcon.module.scss'; 
+import PropTypes from 'prop-types';
 
-const Icon = ({ src, alt }) => {
+const SportIcon = ({ src, alt }) => {
   return (
     <div className={Styles.iconContainer}>
       <img src={src} alt={alt} />
@@ -9,4 +10,9 @@ const Icon = ({ src, alt }) => {
   );
 };
 
-export default Icon;
+SportIcon.propTypes = {
+  src: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+};
+
+export default SportIcon;

@@ -1,29 +1,43 @@
 .mainDashboardContainer{
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 100%;
-    height: auto;//100%;
+    height: auto;
     gap: 4%;
-    padding-top: 4%;
-    padding-left: 7%;
+    margin-top: 5%;
+    margin-left: 7%;
+    margin-bottom: 6%;
+    margin-right: 6%;
     .header{
-        height: 16vh;
+        height: 8%;
+    }
+    .content{
+        display: flex;
+        justify-content: space-between;
+        gap: 3%;
+        height: auto;
+
     }
     .leftContent{
         display: flex;
         flex-direction: column;
         gap: 4%;
-        height: auto;;
-        width: 69%;
+        height: auto;
+        width: 75%;
         .displayHorizontal{
             display: flex;
             gap: 2%;
-   
             justify-content: space-between;
+            width: 100%;
         }
     }
     .rightContent{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         height: auto;
-        width: 30%;
+        width: 27%;
+        gap: 4%;
     }
 }
