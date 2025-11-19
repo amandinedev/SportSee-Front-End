@@ -1,6 +1,10 @@
 .radarContainer{
-    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    aspect-ratio: 0.98/1;
     background-color: hsla(203, 9%, 17%, 1);
     border-radius: 5px;
-    width: 30%;
+    width: 30.5%;
+padding: 1% 0%;
 }

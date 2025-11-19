@@ -10,7 +10,8 @@ import {
   formatUserData,
   formatActivityData,
   formatAverageSessionsData,
-  formatPerformanceData
+  formatPerformanceData,
+  mapPerformanceDataToRadarFormat 
 } from './dataModel';
 
 // Check if we should use mock data
@@ -45,7 +46,7 @@ return averageSessionsMockData;
 }
 
 function getPerformanceMockData(userId){
-  const performanceMockData = USER_PERFORMANCE.find(p => p.userId === userId);
+  const performanceMockData = USER_PERFORMANCE.find(p => p.userId === userId) || [];
   if (!performanceMockData) throw new Error(`User with id ${userId} not found`);
   return performanceMockData;
 }
@@ -59,7 +60,7 @@ async function fetchRealData(url) {
 
 
 export function useFetchUser(id) {
-  const [user, setUser] = useState([]);
+  const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -176,7 +177,8 @@ export function useAverageSessions(id) {
 }
 
 export function usePerformance(id) {
-  const [performance, setPerformance] = useState(null);
+  const [performance, setPerformance] = useState([]);
+  const [radarData, setRadarData] = useState([]); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -199,6 +201,10 @@ export function usePerformance(id) {
         // Ensure the fetched data contains user information and format it correctly
         if (performanceData) {
           setPerformance(formatPerformanceData(performanceData)); // Set formatted user data to state
+
+           // Map data for radar chart directly here using the new function
+          const mappedRadarData = mapPerformanceDataToRadarFormat(performanceData);
+          setRadarData(mappedRadarData); // Set radar data to state
         } else {
           throw new Error('No performance data found'); // Throw error if no user data is found
         }
@@ -211,6 +217,6 @@ export function usePerformance(id) {
     fetchData();
   }, [id]);
 
-  return { performance, loading, error };
+  return { performance, radarData, loading, error };
 }
 

@@ -56,7 +56,7 @@ const AverageSession = () => {
   return (
     <section className={styles.averageSessionContainer}>
       <h3>Durée moyenne des sessions</h3>
-      <ResponsiveContainer width="100%" height="100%">
+      <ResponsiveContainer width="100%" height="100%" zIndex={1}>
         <LineChart
           data={extendedChartData}
           margin={{ top: 70, right: 0, bottom: 5, left:0  }}
