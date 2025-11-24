@@ -4,15 +4,15 @@ import styles from "./TopNav.module.scss";
 import logo from "../../assets/SportSeeLogo.svg";
 import PropTypes from 'prop-types';
 
-const TopNav = ({id}) => {
+const TopNav = ({ id }) => {
   return (
     <div className={styles.navContainer}>
       <img src={logo} alt="Sportsee Logo" />
       <nav className={styles.links}>
-        <Link to= {`/dashboard/${id}`}>Accueil</Link>
-        <Link to="/profil">Profil</Link>
-        <Link to="/reglages">Règlages</Link>
-        <Link to="/communaute">Communauté</Link>
+        <Link to={`/user/${id}/dashboard`}>Accueil</Link>
+        <Link to={`/user/${id}/profil`}>Profil</Link>
+        <Link to={`/user/${id}/reglages`}>Règlages</Link>
+        <Link to={`/user/${id}/communaute`}>Communauté</Link>
       </nav>
     </div>
   );

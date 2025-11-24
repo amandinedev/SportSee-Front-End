@@ -1,6 +1,4 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { useAverageSessions } from "../../../apiService";
 import {
   LineChart,
   Line,
@@ -25,12 +23,7 @@ const CustomCursor = ({points}) => {
   )
 }
 
-const AverageSession = () => {
-  const { id } = useParams();
-  const { sessions, loading, error } = useAverageSessions(id);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+const AverageSession = ({sessions}) => {
 
   const chartData = sessions.map((session, index) => ({
     day: ["L", "M", "M", "J", "V", "S", "D"][index],

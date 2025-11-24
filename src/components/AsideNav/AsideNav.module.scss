@@ -1,9 +1,8 @@
 @use '../../scss/abstracts' as a;
 
 .navVertical {
-  height: auto;//91vh;
-  min-height: 91vh;
-  width: 9%; 
+  width: 6vw; 
+  // height: 100%;
   background-color: a.$bgDark;
   display: flex;
   flex-direction: column;

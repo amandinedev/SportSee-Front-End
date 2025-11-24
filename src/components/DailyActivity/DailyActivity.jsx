@@ -1,7 +1,5 @@
 // src/components/DailyActivity/DailyActivity.jsx
 import React from "react";
-import { useParams } from "react-router-dom";
-import { useFetchActivity } from "../../../apiService";
 import {
   BarChart,
   Bar,
@@ -38,13 +36,8 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-const DailyActivity = () => {
-  const { id } = useParams();
-  const { activity, loading, error } = useFetchActivity(id);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
+const DailyActivity = ({activity}) => {
+  
   const weightTicks = generateTicks(
     Math.min(...activity.map((a) => a.kilogram)) - 1,
     Math.max(...activity.map((a) => a.kilogram)) + 1

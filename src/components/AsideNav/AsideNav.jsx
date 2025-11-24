@@ -8,14 +8,14 @@ import Bike from '../../assets/iconBiking.svg';
 import Training from '../../assets/iconTraining.svg';
 
 
-const Aside = () => {
+const Aside = ({id}) => {
   return (
     <aside className={styles.navVertical}>
-      <nav className= {styles.sportIcons}>
-        <Link to="/dashboard/yoga"><SportIcon src={Yoga} alt="Yoga Icon" /></Link>
-        <Link to="/dashboard/natation"><SportIcon src={Swim} alt="Natation Icon" /></Link>
-        <Link to="/dashboard/velo"><SportIcon src={Bike} alt="Vélo Icon" /></Link>
-        <Link to="/dashboard/musculation"><SportIcon src={Training} alt="Musculation Icon" /></Link>
+          <nav className={styles.sportIcons}>
+        <Link to={`/user/${id}/yoga`}><SportIcon src={Yoga} alt="Yoga Icon" /></Link>
+        <Link to={`/user/${id}/natation`}><SportIcon src={Swim} alt="Natation Icon" /></Link>
+        <Link to={`/user/${id}/velo`}><SportIcon src={Bike} alt="Vélo Icon" /></Link>
+        <Link to={`/user/${id}/musculation`}><SportIcon src={Training} alt="Musculation Icon" /></Link>
       </nav>
       <div className={styles.copyright}>
         <p >Copyright, SportSee 2020</p>

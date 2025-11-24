@@ -1,39 +1,32 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-import { usePerformance } from "../../../apiService";
 import {
   RadarChart,
   Radar,
   PolarGrid,
   Tooltip,
-  Legend,
   ResponsiveContainer,
   PolarAngleAxis,
-  PolarRadiusAxis,
 } from "recharts";
-import styles from "./Radar.module.scss";
+import styles from "./RadarComponent.module.scss";
 
-const RadarComponent = () => {
-  const { id } = useParams();
-  const { radarData, loading, error } = usePerformance(id);
-
-  if (loading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+const RadarComponent = ({radarData}) => {
+  
+ if (!radarData) return <div>Loading...</div>;
 
   return (
     <section className={styles.radarContainer}>
-      <ResponsiveContainer width="100%" height="100%">
-        <RadarChart cx="50%" cy="50%" outerRadius="63%" data={radarData}>
+      <ResponsiveContainer maxWidth="200px" width="100%" maxHeight="196px" height="98%"  >
+        <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
           <PolarGrid
             radialLines={false}
             stroke={"hsla(0, 0%, 100%, 1)"}
-            polarRadius={[0, 8, 16, 35, 55, 75]}
+            polarRadius={[0, 8, 16, 30, 45, 65]}
           />
           <PolarAngleAxis
-            tickSize={15}
+            tickSize={11}
             strokeWidth={0}
             dataKey="subject"
-            fontSize={"0.75em"}
+            fontSize={"65%"}
             fill={"hsla(0, 0%, 0%, 1.00)"}
             stroke={"hsla(0, 0%, 100%, 1)"}
           />

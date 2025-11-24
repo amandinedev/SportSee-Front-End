@@ -1,7 +1,6 @@
 export function formatUserData(user) {
   if (!user) return null;
-  // Ensure user score uses todayScore, otherwise default to score
-  user.todayScore = user.todayScore || user.score;
+  user.score = user.score || user.todayScore;
   return user;
 }
 

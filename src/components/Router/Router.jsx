@@ -18,7 +18,7 @@ const Router = () => {
           <Route path="/" element={<Login />} />
         
           {/* Main Dashboard with nested route to fetch data by ID */}
-                <Route path="/dashboard/:id" element={
+                <Route path="/user/:id/dashboard" element={
                     <Layout>
                         <MainDashboard />
                     </Layout>
