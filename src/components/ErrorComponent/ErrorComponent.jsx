@@ -1,20 +1,20 @@
 // src/components/ErrorComponent/ErrorComponent.jsx
 
-import React from 'react';
-import PropTypes from 'prop-types';
-import styles from './ErrorComponent.module.scss'
+import React from "react";
+import PropTypes from "prop-types";
+import styles from "./ErrorComponent.module.scss";
 
 const ErrorComponent = ({ message, type }) => {
-  let errorType = '';
+  let errorType = "";
   switch (type) {
-    case 'fetch':
-      errorType = 'Fetching Data Failed';
+    case "fetch":
+      errorType = "Fetching Data Failed";
       break;
-    case 'network':
-      errorType = 'Network Error';
+    case "network":
+      errorType = "Network Error";
       break;
     default:
-      errorType = 'Unknown Error';
+      errorType = "Unknown Error";
   }
 
   return (
@@ -27,7 +27,7 @@ const ErrorComponent = ({ message, type }) => {
 
 ErrorComponent.propTypes = {
   message: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['fetch', 'network', 'default']),
+  type: PropTypes.oneOf(["fetch", "network", "default"]),
 };
 
 export default ErrorComponent;

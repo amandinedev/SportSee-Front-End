@@ -1,0 +1,27 @@
+@use "../../scss/abstracts" as a;
+
+.loaderContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid a.$calories;
+  border-top-color: a.$bgRed;
+  border-radius: 50%;
+  animation: spin 1.5s linear infinite;
+  padding: auto;
+
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}

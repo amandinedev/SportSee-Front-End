@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./TopNav.module.scss";
 import logo from "../../assets/SportSeeLogo.svg";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 const TopNav = ({ id }) => {
   return (

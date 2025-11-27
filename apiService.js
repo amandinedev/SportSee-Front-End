@@ -18,13 +18,6 @@ import {
 const USE_MOCK_DATA = import.meta.env.VITE_USE_MOCK_DATA === 'true';
 const API_BASE_URL = 'http://localhost:3000'; 
 
-// Function to simulate network call with mock data
-// function fetchMockData(url, userId) {
-//   return new Promise((resolve) => {
-//     setTimeout(() => resolve(getMockDataByUserId(userId)[url]), 500);
-//   });
-// }
-
 // Helper function to get mock data by user ID
 function getUserMockData(userId) {
   const userMockData = USER_MAIN_DATA.find(user => user.id === parseInt(userId));
@@ -58,7 +51,29 @@ async function fetchRealData(url) {
   return response.json();
 }
 
+// Fetch user IDs using mock or real data
+export function useFetchIds() {
+  const [ids, setIds] = useState([]);
+  const [error, setError] = useState(null);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        // Always use mock data
+        const userData = USER_MAIN_DATA.map(user => user.id);
+        setIds(userData);
+      } catch (error) {
+        setError(error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  return { ids, error };
+}
+
+// Fetch user data using mock or real data
 export function useFetchUser(id) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -86,8 +101,8 @@ export function useFetchUser(id) {
         }  else {
           throw new Error('No user data found'); // Throw error if no user data is found
         }
-        } catch (err) {
-        setError(err); // Set any encountered errors to the state
+        } catch (error) {
+        setError(error); // Set any encountered errors to the state
       } finally {
         setLoading(false);// Set loading to false after fetching data or encountering an error
       }
@@ -98,6 +113,7 @@ export function useFetchUser(id) {
   return { user, loading, error };
 };
 
+// Fetch activity data using mock or real data
 export function useFetchActivity(id) {
   const [activity, setActivity] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -125,8 +141,8 @@ export function useFetchActivity(id) {
         }  else {
           throw new Error('No activity data found'); // Throw error if no user data is found
         }
-        } catch (err) {
-        setError(err); // Set any encountered errors to the state
+        } catch (error) {
+    setError(error);// Set any encountered errors to the state
       } finally {
         setLoading(false);// Set loading to false after fetching data or encountering an error
       }
@@ -137,6 +153,7 @@ export function useFetchActivity(id) {
   return { activity, loading, error };
 };
 
+// fetch average sessions data using mock or real data
 export function useAverageSessions(id) {
   const [sessions, setSessions] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -164,8 +181,8 @@ export function useAverageSessions(id) {
         } else {
           throw new Error('No average session data found'); // Throw error if no user data is found
         }
-      } catch (err) {
-        setError(err); // Set any encountered errors to the state
+      } catch (error) {
+        setError(error); // Set any encountered errors to the state
       } finally {
         setLoading(false);// Set loading to false after fetching data or encountering an error
       }
@@ -176,6 +193,7 @@ export function useAverageSessions(id) {
   return { sessions, loading, error };
 }
 
+// fetch performance using mock or real data
 export function usePerformance(id) {
   const [performance, setPerformance] = useState([]);
   const [radarData, setRadarData] = useState([]); 
@@ -208,8 +226,8 @@ export function usePerformance(id) {
         } else {
           throw new Error('No performance data found'); // Throw error if no user data is found
         }
-      } catch (err) {
-        setError(err); // Set any encountered errors to the state
+      } catch (error) {
+        setError(error); // Set any encountered errors to the state
       } finally {
         setLoading(false);// Set loading to false after fetching data or encountering an error
       }
@@ -219,4 +237,5 @@ export function usePerformance(id) {
 
   return { performance, radarData, loading, error };
 }
+
 

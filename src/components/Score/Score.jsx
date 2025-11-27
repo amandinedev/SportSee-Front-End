@@ -1,6 +1,7 @@
 import React from "react";
-import { PieChart, Pie } from "recharts";
+import { PieChart, Pie, ResponsiveContainer } from "recharts";
 import styles from "./Score.module.scss";
+import PropTypes from 'prop-types';
 
 const Score = ({ scoreData }) => {
 
@@ -24,7 +25,8 @@ const Score = ({ scoreData }) => {
             <p className={styles.score}>{scoreData}%</p>
             <p className={styles.scoreDescription}>de votre objectif</p>
         </div>
-      <PieChart  width={"100%"} height={"100%"} outerRadius={'90%'} responsive isAnimationActive={false}>
+        <ResponsiveContainer width="100%" height="100%"  aspect={undefined} >
+      <PieChart outerRadius='90%' isAnimationActive={false}>
         <Pie
           innerRadius="70%"
           outerRadius="80%"
@@ -47,8 +49,13 @@ const Score = ({ scoreData }) => {
           endAngle={-360} // Adjust based on percentage to ensure overlay only
         />
       </PieChart>
+      </ResponsiveContainer> 
     </section>
   );
 };
+
+Score.propTypes = {
+  scoreData: PropTypes.number.isRequired,
+}
 
 export default Score;

@@ -1,4 +1,4 @@
-@use '../../scss/abstracts' as a;
+@use "../../scss/abstracts" as a;
 
 .dailyActivityContainer {
   display: flex;
@@ -8,6 +8,7 @@
   border-radius: 5px;
   padding: 2%;
   aspect-ratio: 2.61/1;
+  height: 53%;
   .dailyActivityTitle {
     display: flex;
     justify-content: space-between;

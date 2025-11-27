@@ -7,11 +7,12 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Area
+  Area,
 } from "recharts";
 import styles from "./AverageSession.module.scss";
+import PropTypes from "prop-types";
 
-const CustomCursor = ({points}) => {
+const CustomCursor = ({ points }) => {
   return (
     <rect
       fill="#000000"
@@ -20,21 +21,20 @@ const CustomCursor = ({points}) => {
       height="100%"
       width="100%"
     />
-  )
-}
+  );
+};
 
-const AverageSession = ({sessions}) => {
-
+const AverageSession = ({ sessions }) => {
   const chartData = sessions.map((session, index) => ({
     day: ["L", "M", "M", "J", "V", "S", "D"][index],
     sessionLength: session.sessionLength,
   }));
 
-    // Extend the data for +1 and -1 on x-axis
+  // Extend the data for +1 and -1 on x-axis
   const extendedChartData = [
-    { ...chartData[0], day: '' },
+    { ...chartData[0], day: "" },
     ...chartData,
-    { ...chartData[chartData.length - 1], day: '' }
+    { ...chartData[chartData.length - 1], day: "" },
   ];
 
   // Create a gradient for the line
@@ -49,10 +49,10 @@ const AverageSession = ({sessions}) => {
   return (
     <section className={styles.averageSessionContainer}>
       <h3>Durée moyenne des sessions</h3>
-      <ResponsiveContainer width="100%" height="100%" zIndex={1}>
+      <ResponsiveContainer width="100%" height="100%" aspect={undefined}>
         <LineChart
           data={extendedChartData}
-          margin={{ top: 70, right: 0, bottom: 5, left:0  }}
+          margin={{ top: 70, right: 0, bottom: 5, left: 0 }}
         >
           <defs>{LineGradient}</defs>
 
@@ -62,7 +62,7 @@ const AverageSession = ({sessions}) => {
             axisLine={false}
             interval={0}
             tickFormatter={(value) => value}
-            tick={{ fill: "#fff", opacity: "50.4%" }} 
+            tick={{ fill: "#fff", opacity: "50.4%" }}
           />
           <YAxis type="number" domain={[0, "auto"]} hide={true} />
           <Tooltip
@@ -70,16 +70,21 @@ const AverageSession = ({sessions}) => {
               textAlign: "center",
               background: "white",
               fontSize: "0.5em",
-              color: 'hsla(0, 0%, 0%, 1)',
+              color: "hsla(0, 0%, 0%, 1)",
               padding: "4px 8px",
-              
             }}
             labelStyle={{ display: "none" }}
             formatter={(value) => [`${value} min`]}
-            cursor={ <CustomCursor/>}
+            cursor={<CustomCursor />}
           />
-          
-          <Area type='monotone' dataKey='uv' stackId="1" stroke='green' fill='black' />        
+
+          <Area
+            type="monotone"
+            dataKey="uv"
+            stackId="1"
+            stroke="green"
+            fill="black"
+          />
           <Line
             type="monotone"
             dataKey="sessionLength"
@@ -93,12 +98,19 @@ const AverageSession = ({sessions}) => {
               cursor: "pointer",
             }}
             strokeWidth={3}
-
           />
         </LineChart>
       </ResponsiveContainer>
     </section>
   );
+};
+
+AverageSession.propTypes = {
+  sessions: PropTypes.arrayOf(
+    PropTypes.shape({
+      sessionLength: PropTypes.number.isRequired,
+    })
+  ).isRequired,
 };
 
 export default AverageSession;

@@ -1,19 +1,19 @@
-@use '../../scss/abstracts' as a;
+@use "../../scss/abstracts" as a;
 
-.header{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: auto;
-    gap: 1.5em;
-    color: a.$fontDark;
-    }
-    h1{
-        font-size: 3em;
-    span{
-        color: a.$fontRed;
-    }
-    p{
-        font-size: 1.125em;
-    }
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: auto;
+  gap: 1.5em;
+  color: a.$fontDark;
+}
+h1 {
+  font-size: 3em;
+  span {
+    color: a.$fontRed;
+  }
+  p {
+    font-size: 1.125em;
+  }
 }

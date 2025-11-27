@@ -8,6 +8,7 @@ import {
   PolarAngleAxis,
 } from "recharts";
 import styles from "./RadarComponent.module.scss";
+import PropTypes from 'prop-types';
 
 const RadarComponent = ({radarData}) => {
   
@@ -15,7 +16,7 @@ const RadarComponent = ({radarData}) => {
 
   return (
     <section className={styles.radarContainer}>
-      <ResponsiveContainer maxWidth="200px" width="100%" maxHeight="196px" height="98%"  >
+      <ResponsiveContainer  width="100%"   height="100%" aspect={undefined}   >
         <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
           <PolarGrid
             radialLines={false}
@@ -61,5 +62,12 @@ const RadarComponent = ({radarData}) => {
     </section>
   );
 };
+
+RadarComponent.propTypes = {
+  radarData: PropTypes.arrayOf(PropTypes.shape({
+    subject: PropTypes.string.isRequired,
+    A: PropTypes.number.isRequired
+  })).isRequired,
+}
 
 export default RadarComponent;

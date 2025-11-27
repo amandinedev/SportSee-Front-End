@@ -1,0 +1,18 @@
+@use "../../scss/abstracts" as a;
+
+.button {
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+  width: 100%;
+  background-color: a.$bgRed;
+  color: a.$fontBright;
+  text-decoration: none;
+  border-radius: 5px;
+color: a.$fontBright;
+  border: none;
+
+  &:hover {
+    background-color: darken(a.$bgRed, 5%);
+  }
+}

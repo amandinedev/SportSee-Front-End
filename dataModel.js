@@ -1,7 +1,27 @@
 export function formatUserData(user) {
   if (!user) return null;
+
+  const firstName = user.userInfos.firstName;
+
+  //handle typo issues
   user.score = user.score || user.todayScore;
-  return user;
+  const scoreData = user.score ? user.score * 100 : 0;
+
+  // Keycards data
+  const caloriesData = user.keyData.calorieCount;
+  const proteinData = user.keyData.proteinCount;
+  const carbohydrateData = user.keyData.carbohydrateCount;
+  const lipidData = user.keyData.lipidCount;
+
+  return {
+    user,
+    firstName,
+    scoreData,
+    caloriesData,
+    proteinData,
+    carbohydrateData,
+    lipidData,
+  };
 }
 
 export function formatActivityData(activity) {

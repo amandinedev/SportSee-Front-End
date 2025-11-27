@@ -1,34 +1,34 @@
 .mainDashboardContainer {
   display: flex;
   flex-direction: column;
-  width: 91%;
-  // height: 91%;
-    gap:7%;
+  justify-content: space-between;
+  width: 100%;
+  height: 86%;
   margin-top: 5%;
-  margin-left: 7%;
+  margin-left: 8%;
   margin-bottom: 5%;
+  margin-right: 5%;
 
   .header {
     height: auto;
   }
   .content {
     display: flex;
-    height: 70%;
+    justify-content: space-between;
+    height: 65%;
     width: 100%;
-    gap:20px;
   }
   .leftContent {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 89%;
-    width: 65%;
-    gap: 15px;
+    height: 100%;
+    width: 72%;
     .displayHorizontal {
       display: flex;
       justify-content: space-between;
       width: 100%;
-      // height: 100%;
+      height: 43%;
       gap: 20px;
     }
   }
@@ -36,9 +36,14 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    // height: 100%;
-    width: 20%;
-    gap: 20px;
-
+    height: 100%;
+    width: 25%;
   }
 }
+
+    .errorSection{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
+  }

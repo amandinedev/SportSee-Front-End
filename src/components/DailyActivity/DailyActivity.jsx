@@ -1,4 +1,3 @@
-// src/components/DailyActivity/DailyActivity.jsx
 import React from "react";
 import {
   BarChart,
@@ -10,6 +9,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import styles from "./DailyActivity.module.scss";
+import PropTypes from "prop-types";
 
 const formatDayTick = (dateString) => {
   const dayPart = dateString.split("-")[2];
@@ -36,8 +36,7 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
-const DailyActivity = ({activity}) => {
-  
+const DailyActivity = ({ activity }) => {
   const weightTicks = generateTicks(
     Math.min(...activity.map((a) => a.kilogram)) - 1,
     Math.max(...activity.map((a) => a.kilogram)) + 1
@@ -64,10 +63,10 @@ const DailyActivity = ({activity}) => {
       </div>
       <ResponsiveContainer
         width="100%"
-        minWidth="100"
         height="100%"
-        minHeight="100"
-        ratio={0.4/1}
+        minHeight={100}
+        minWidth={100}
+        ratio={0.4 / 1}
       >
         <BarChart
           data={activity}
@@ -80,8 +79,7 @@ const DailyActivity = ({activity}) => {
             yAxisId="weight"
             orientation="right"
             domain={["dataMin-1", "dataMax+1"]}
-            ticks={weightTicks} // Generate unique ticks for weight
-            tickCount={weightTicks.length}
+            ticks={weightTicks}
           />
           <YAxis
             yAxisId="calories"
@@ -113,6 +111,16 @@ const DailyActivity = ({activity}) => {
       </ResponsiveContainer>
     </section>
   );
+};
+
+DailyActivity.propTypes = {
+  activity: PropTypes.arrayOf(
+    PropTypes.shape({
+      kilogram: PropTypes.number.isRequired,
+      calories: PropTypes.number.isRequired,
+      day: PropTypes.string.isRequired,
+    })
+  ).isRequired,
 };
 
 export default DailyActivity;

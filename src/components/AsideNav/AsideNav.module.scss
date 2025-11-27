@@ -1,8 +1,8 @@
-@use '../../scss/abstracts' as a;
+@use "../../scss/abstracts" as a;
 
 .navVertical {
-  width: 6vw; 
-  // height: 100%;
+  width: 117px;
+  height: 100%;
   background-color: a.$bgDark;
   display: flex;
   flex-direction: column;
@@ -17,24 +17,23 @@
     margin-bottom: 10vh;
   }
 
-    .iconContainer {
-      margin-bottom: 10%;
-      img:hover {
+  .iconContainer {
+    margin-bottom: 10%;
+    img:hover {
       opacity: 0.8;
     }
-    }
   }
-    .copyright{
-       display: flex;
-       height: 30%;
-      width: 100%;
-    p{
-      display: flex;
-      font-size: 0.75em;
-color: a.$fontBright;
+}
+.copyright {
+  display: flex;
+  height: 30%;
+  width: 100%;
+  p {
+    display: flex;
+    font-size: 0.75em;
+    color: a.$fontBright;
     width: auto;
     margin: auto;
-writing-mode: sideways-lr;
-
-    }
-      }
+    writing-mode: sideways-lr;
+  }
+}
