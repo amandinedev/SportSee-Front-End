@@ -33,10 +33,19 @@ export function formatActivityData(activity) {
 }
 
 export function formatAverageSessionsData(sessions) {
-  return sessions.map((session) => ({
-    day: session.day,
-    sessionLength: session.sessionLength,
-  }));
+  if (sessions.length === 0) return [];
+
+  // Create initial array with extra entries for day 0 and day 8
+  const formattedData = [
+    { day: 0, sessionLength: sessions[0].sessionLength },
+    ...sessions.map((session, index) => ({
+      day: index + 1,
+      sessionLength: session.sessionLength,
+    })),
+    { day: 8, sessionLength: sessions[sessions.length - 1].sessionLength },
+  ];
+
+  return formattedData;
 }
 
 export function formatPerformanceData(performance) {
@@ -49,7 +58,7 @@ export function formatPerformanceData(performance) {
   return { ...performance, data: formattedData };
 }
 
-// New function to map performance data for Radar component
+// function to map performance data for Radar component
 export function mapPerformanceDataToRadarFormat(performance) {
   if (!performance || !Array.isArray(performance.data)) return [];
 
@@ -57,34 +66,34 @@ export function mapPerformanceDataToRadarFormat(performance) {
     {
       subject: "Intensité",
       A: performance.data.find((item) => item.kind === 6)?.value || 0,
-      fullMark: 150,
+      fullMark: 250,
     },
     {
       subject: "Vitesse",
       A: performance.data.find((item) => item.kind === 5)?.value || 0,
-      fullMark: 150,
+      fullMark: 250,
     },
 
     {
       subject: "Force",
       A: performance.data.find((item) => item.kind === 4)?.value || 0,
-      fullMark: 150,
+      fullMark: 250,
     },
     {
       subject: "Endurance",
       A: performance.data.find((item) => item.kind === 3)?.value || 0,
-      fullMark: 150,
+      fullMark: 250,
     },
     {
       subject: "Énergie",
       A: performance.data.find((item) => item.kind === 2)?.value || 0,
-      fullMark: 150,
+      fullMark: 250,
     },
 
     {
       subject: "Cardio",
       A: performance.data.find((item) => item.kind === 1)?.value || 0,
-      fullMark: 150,
+      fullMark: 250,
     },
   ];
 

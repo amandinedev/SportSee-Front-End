@@ -8,7 +8,7 @@ const ErrorComponent = ({ message, type }) => {
   let errorType = "";
   switch (type) {
     case "fetch":
-      errorType = "Fetching Data Failed";
+      errorType = "Fetching Data";
       break;
     case "network":
       errorType = "Network Error";

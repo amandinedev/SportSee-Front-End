@@ -46,7 +46,7 @@ const Score = ({ scoreData }) => {
           cx="50%"
           cy="50%"
           startAngle={90}
-          endAngle={-360} // Adjust based on percentage to ensure overlay only
+          endAngle={-360}
         />
       </PieChart>
       </ResponsiveContainer> 

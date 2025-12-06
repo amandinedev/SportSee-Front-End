@@ -13,7 +13,8 @@ import PropTypes from "prop-types";
 
 const formatDayTick = (dateString) => {
   const dayPart = dateString.split("-")[2];
-  return parseInt(dayPart, 10).toString(); // Convert to integer and back to string to remove leading zeros
+  return parseInt(dayPart, 10).toString();
+  // Convert to integer and back to string to remove leading zeros
 };
 
 const generateTicks = (min, max) => {

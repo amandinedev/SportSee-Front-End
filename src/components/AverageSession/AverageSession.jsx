@@ -26,16 +26,9 @@ const CustomCursor = ({ points }) => {
 
 const AverageSession = ({ sessions }) => {
   const chartData = sessions.map((session, index) => ({
-    day: ["L", "M", "M", "J", "V", "S", "D"][index],
+    day: ["", "L", "Ma", "Me", "J", "V", "S", "D", ""][index],
     sessionLength: session.sessionLength,
   }));
-
-  // Extend the data for +1 and -1 on x-axis
-  const extendedChartData = [
-    { ...chartData[0], day: "" },
-    ...chartData,
-    { ...chartData[chartData.length - 1], day: "" },
-  ];
 
   // Create a gradient for the line
   const LineGradient = (
@@ -49,10 +42,10 @@ const AverageSession = ({ sessions }) => {
   return (
     <section className={styles.averageSessionContainer}>
       <h3>Durée moyenne des sessions</h3>
-      <ResponsiveContainer width="100%" height="100%" aspect={undefined}>
+      <ResponsiveContainer width="100%" height="100%">
         <LineChart
-          data={extendedChartData}
-          margin={{ top: 70, right: 0, bottom: 5, left: 0 }}
+          data={chartData}
+          margin={{ top: 60, right: 0, bottom: 5, left: 0 }}
         >
           <defs>{LineGradient}</defs>
 
@@ -76,14 +69,6 @@ const AverageSession = ({ sessions }) => {
             labelStyle={{ display: "none" }}
             formatter={(value) => [`${value} min`]}
             cursor={<CustomCursor />}
-          />
-
-          <Area
-            type="monotone"
-            dataKey="uv"
-            stackId="1"
-            stroke="green"
-            fill="black"
           />
           <Line
             type="monotone"

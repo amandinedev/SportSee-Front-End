@@ -9,7 +9,7 @@ const TopNav = ({ id }) => {
     <div className={styles.navContainer}>
       <img src={logo} alt="Sportsee Logo" />
       <nav className={styles.links}>
-        <Link to={`/user/${id}/dashboard`}>Accueil</Link>
+        <Link to={`/user/${id}/home`}>Accueil</Link>
         <Link to={`/user/${id}/profil`}>Profil</Link>
         <Link to={`/user/${id}/reglages`}>Règlages</Link>
         <Link to={`/user/${id}/communaute`}>Communauté</Link>

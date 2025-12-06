@@ -16,18 +16,18 @@ const RadarComponent = ({radarData}) => {
 
   return (
     <section className={styles.radarContainer}>
-      <ResponsiveContainer  width="100%"   height="100%" aspect={undefined}   >
+      <ResponsiveContainer  width="100%"   height="98%" >
         <RadarChart cx="50%" cy="50%" outerRadius="70%" data={radarData}>
           <PolarGrid
             radialLines={false}
             stroke={"hsla(0, 0%, 100%, 1)"}
-            polarRadius={[0, 8, 16, 30, 45, 65]}
+            polarRadius={[0, 8, 16, 32, 48, 63]}
           />
           <PolarAngleAxis
-            tickSize={11}
+            tickSize={12}
             strokeWidth={0}
             dataKey="subject"
-            fontSize={"65%"}
+            fontSize={"60%"}
             fill={"hsla(0, 0%, 0%, 1.00)"}
             stroke={"hsla(0, 0%, 100%, 1)"}
           />

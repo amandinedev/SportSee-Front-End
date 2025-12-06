@@ -13,6 +13,6 @@ color: a.$fontBright;
   border: none;
 
   &:hover {
-    background-color: darken(a.$bgRed, 5%);
+  background-color: a.$bgRedDarken;
   }
 }

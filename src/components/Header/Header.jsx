@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import styles from "./Header.module.scss";
 
 function Header({firstName}) {
@@ -12,5 +13,9 @@ function Header({firstName}) {
     </section>
   );
 }
+
+Header.propTypes = {
+  firstName: PropTypes.string.isRequired,
+};
 
 export default Header;

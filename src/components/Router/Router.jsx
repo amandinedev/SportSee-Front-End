@@ -1,8 +1,9 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Login from "../Login/Login";
 import Layout from "../Layout/Layout";
-import MainDashboard from "../../pages/MainDashboard/MainDashboard";
+import Home from "../../pages/Home/Home";
 import Profil from "../../pages/Profil/Profil";
 import Settings from "../../pages/Settings/Settings";
 import Community from "../../pages/Community/Community";
@@ -10,21 +11,21 @@ import SportDashboard from "../../pages/SportDashboard/SportDashboard";
 import Error404 from "../../pages/Error404/Error404";
 
 const Router = () => {
+  const { id } = useParams();
+
   return (
     <BrowserRouter>
       <Routes>
         {/* Route for the login page */}
         <Route path="/" element={<Login />} />
-        {/* Main Dashboard with nested route to fetch data by ID */}
         <Route
-          path="/user/:id/dashboard"
+          path="/user/:id/home"
           element={
             <Layout>
-              <MainDashboard />{" "}
+              <Home />
             </Layout>
           }
         />
-        {/* routes for future use */}
         <Route
           path="/user/:id/profil"
           element={
@@ -49,7 +50,6 @@ const Router = () => {
             </Layout>
           }
         />
-
         {/* Sport-specific dashboards (placeholder) */}
         <Route
           path="/user/:id/dashboard/yoga"
@@ -83,15 +83,15 @@ const Router = () => {
             </Layout>
           }
         />
+        {/* This will catch all undefined routes */}
         <Route
           path="/*"
           element={
             <Layout>
-              <Error404 />
+              <Error404 id={id} />
             </Layout>
           }
         />
-        {/* This will catch all undefined routes */}
       </Routes>
     </BrowserRouter>
   );

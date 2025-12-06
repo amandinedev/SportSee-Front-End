@@ -18,7 +18,7 @@ import {
 const USE_MOCK_DATA = import.meta.env.VITE_USE_MOCK_DATA === 'true';
 const API_BASE_URL = 'http://localhost:3000'; 
 
-// Helper function to get mock data by user ID
+// function to get mock data by user ID
 function getUserMockData(userId) {
   const userMockData = USER_MAIN_DATA.find(user => user.id === parseInt(userId));
   if (!userMockData) throw new Error(`User with id ${userId} not found`);
