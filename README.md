@@ -29,9 +29,9 @@ Configures routing for the application using React Router.
    - Path: `/`
    - Component: `<Login />`
 
-2. **Main Dashboard**
-   - Path: `/user/:id/dashboard`
-   - Component: `<MainDashboard />`
+2. **Home**
+   - Path: `/user/:id/home`
+   - Component: `<Home />`
    - Dynamic route based on user ID.
 
 3. **Profil Page**
@@ -68,20 +68,21 @@ This file contains utility functions for fetching user-related data from either 
 #### Functions:
 
 - **useFetchUser(id)**
-  - Fetches and formats user data.
+  - Fetches and formats user data based on the given ID.
   - Uses mock data if specified by environment variables, otherwise fetches real data.
   - Returns `user`, `loading`, and `error` states.
 
 - **useFetchActivity(id)**
   - Fetches and formats activity data for a given user ID.
   - Similar to `useFetchUser`, with mock or actual API fetching based on configuration.
+  - Returns formatted activity, loading, and error states.
 
 - **useAverageSessions(id)**
-  - Fetches average session data for the user.
+  - Fetches average session data for the user ID.
   - Returns formatted sessions, loading state, and error handling.
 
 - **usePerformance(id)**
-  - Retrieves performance metrics for a user.
+  - Retrieves performance metrics for a given user ID.
   - Uses helper functions to format and map data for radar charts.
   - Returns `performance`, `radarData`, loading state, and error handling.
 
