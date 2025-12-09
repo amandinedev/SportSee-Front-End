@@ -74,13 +74,15 @@ const DailyActivity = ({ activity }) => {
           margin={{ top: 5, right: 20, left: 20, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="2 2" vertical={false} />
-          <XAxis dataKey="day" tickFormatter={formatDayTick} />{" "}
+          <XAxis dataKey="day" stroke="hsla(228, 9%, 64%, 1)" tickFormatter={formatDayTick} />
           {/* Show day numbers only */}
           <YAxis
             yAxisId="weight"
             orientation="right"
             domain={["dataMin-1", "dataMax+1"]}
             ticks={weightTicks}
+            strokeOpacity={0}
+            stroke="hsla(228, 9%, 64%, 1)"
           />
           <YAxis
             yAxisId="calories"

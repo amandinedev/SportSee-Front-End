@@ -7,6 +7,12 @@
   overflow: hidden;
   height: 100%;
   position: relative;
+  .scoreTitle{
+    position: absolute;
+    font-size: 0.9375em;
+    top: 24px;
+    left: 30px;
+  }
   .pieContent {
     position: absolute;
     display: flex;

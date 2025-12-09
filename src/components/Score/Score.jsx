@@ -21,6 +21,7 @@ const Score = ({ scoreData }) => {
   ];
   return (
     <section className={styles.scoreContainer}>
+      <h2 className={styles.scoreTitle} >Score</h2>
         <div className={styles.pieContent}>
             <p className={styles.score}>{scoreData}%</p>
             <p className={styles.scoreDescription}>de votre objectif</p>
