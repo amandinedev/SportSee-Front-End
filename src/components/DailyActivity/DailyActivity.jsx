@@ -71,7 +71,7 @@ const DailyActivity = ({ activity }) => {
       >
         <BarChart
           data={activity}
-          margin={{ top: 5, right: 20, left: 20, bottom: 5 }}
+          margin={{ top: 5, right: 0, left: 20, bottom: 5 }}
         >
           <CartesianGrid strokeDasharray="2 2" vertical={false} />
           <XAxis dataKey="day" stroke="hsla(228, 9%, 64%, 1)" tickFormatter={formatDayTick} />
@@ -81,6 +81,7 @@ const DailyActivity = ({ activity }) => {
             orientation="right"
             domain={["dataMin-1", "dataMax+1"]}
             ticks={weightTicks}
+            tickMargin={20}
             strokeOpacity={0}
             stroke="hsla(228, 9%, 64%, 1)"
           />

@@ -9,11 +9,14 @@
   padding: 2%;
   aspect-ratio: 2.61/1;
   height: 53%;
+  gap: 5%;
   .dailyActivityTitle {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 20%;
+    padding-left: 2.5%;
+    padding-right: 2%;
     h2 {
       font-size: 0.94em;
     }

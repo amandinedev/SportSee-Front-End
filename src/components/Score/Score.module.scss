@@ -10,8 +10,10 @@
   .scoreTitle{
     position: absolute;
     font-size: 0.9375em;
-    top: 24px;
-    left: 30px;
+    font-weight: 500;
+    top: 10%;
+    left: 10%;
+    z-index: 2;
   }
   .pieContent {
     position: absolute;
